@@ -1,10 +1,11 @@
-﻿const TLS下认证可简化 = '芝麻开门';
+﻿const TLS下认证可简化 = '芝麻开门,门禁森严,严丝合缝‌'; // 多组密码用英文逗号分隔
 
 export default {
 	async fetch(request, env, ctx) {
-		const url = new URL(request.url); if (!路径) { UUID = env.UUID || TLS下认证可简化; 路径 = `/${encodeURIComponent(UUID)}`; }
-		if (!url.pathname.startsWith(路径)) return new Response(`Not Found. ${request.cf.country}, ${request.cf.region}, ${request.cf.colo}`, { status: 404 });
-		if (request.headers.get('Upgrade') !== 'websocket') return new Response(订阅网页(url.hostname, UUID), { status: 404 });
+		const url = new URL(request.url); const uuid = decodeURIComponent(url.pathname.slice(1));
+		if (!UUID) { UUID = (env.UUID || TLS下认证可简化).split(','); } // console.log(UUID, uuid);
+		if (!UUID.includes(uuid)) return new Response(`Not Found. ${request.cf.country}, ${request.cf.region}, ${request.cf.colo}`, { status: 404 });
+		if (request.headers.get('Upgrade') !== 'websocket') return new Response(订阅网页(url.hostname, uuid), { status: 404 });
 		DEBUG = url.searchParams.get('debug') === 'true'; url.search = url.search.replace(/{colo}/g, request.cf.colo); return await 升级WS请求(url, request.headers.get('sec-websocket-protocol'), ctx);
 	},
 };

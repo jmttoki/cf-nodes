@@ -107,11 +107,6 @@ console.log(url2.href);
 npm run dev
 # 访问 http://127.0.0.1:8787
 
-# 再开一终端
-npm install -g http-server
-http-server
-# 访问 http://127.0.0.1:8080
-
 ```
 
 ### 订阅转换二次开发
